@@ -23,9 +23,14 @@ function App({ Component, pageProps }) {
     }
   };
 
+  const resetBg = (e) => {
+    const newObj = { ...bgColor, [e.target.id]: white };
+    setBgColor(newObj);
+  };
+
   return (
     <>
-      <Text>Devin is...</Text>
+      {/* <Text>Devin is...</Text> */}
       <Grid
         h='100vh'
         templateRows='repeat(2, 1fr)'
@@ -38,7 +43,8 @@ function App({ Component, pageProps }) {
           pos='relative'
           bg={bgColor.first}
           onMouseEnter={(e) => changeBg(e)}
-          borderRadius={10}
+          onMouseOut={(e) => resetBg(e)}
+          borderRadius={5}
         >
           <Box>
             <Text pos='absolute' top='0' left='0'>
@@ -52,8 +58,8 @@ function App({ Component, pageProps }) {
           pos='relative'
           bg={bgColor.second}
           onMouseEnter={(e) => changeBg(e)}
-          onMouseLeave={(e) => changeBg(e)}
-          borderRadius={10}
+          onMouseLeave={(e) => resetBg(e)}
+          borderRadius={5}
         >
           <Box>
             <Text pos='absolute' top='0' right='0'>
@@ -67,8 +73,8 @@ function App({ Component, pageProps }) {
           bg={bgColor.third}
           pos='relative'
           onMouseEnter={(e) => changeBg(e)}
-          onMouseLeave={(e) => changeBg(e)}
-          borderRadius={10}
+          onMouseLeave={(e) => resetBg(e)}
+          borderRadius={5}
         >
           <Box>
             <Text pos='absolute' bottom='0' left='0'>
@@ -82,8 +88,8 @@ function App({ Component, pageProps }) {
           bg={bgColor.fourth}
           pos='relative'
           onMouseEnter={(e) => changeBg(e)}
-          onMouseLeave={(e) => changeBg(e)}
-          borderRadius={10}
+          onMouseLeave={(e) => resetBg(e)}
+          borderRadius={5}
         >
           <Box>
             <Text pos='absolute' bottom='0' right='0'>
